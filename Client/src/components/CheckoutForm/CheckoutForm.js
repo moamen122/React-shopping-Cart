@@ -1,36 +1,32 @@
-import React from 'react'
-import "../../css/CheckoutForm/Checkout.css"
+import React, { Fragment } from 'react'
+import "../../css/CheckoutForm/CheckoutForm.css"
 import Input from '../Input/Input'
-import Zoom from 'react-reveal/Zoom'
-import { words } from '../../words'
-function Checkout(props) {
+
+
+function CheckoutForm(props) {
     return (
-        <>
-            {props.showForm && <div className="checkout-form">
-                <span className="close-icon" onClick={() => props.setShowForm(false)}> &times; </span>
-                <Zoom left>
+        <Fragment>
+            {props.showForm &&
+
+                <div className="checkout-form">
+                    <span className="close-icon" onClick={() => props.setShowForm(false)}>&times; </span>
                     <form onSubmit={props.submitOrder}>
                         <Input
-                            label={words.name}
+                            label="name"
                             type="text"
-                            name="name"
                             onChange={props.handleChange}
-                        />
+                            name="name" />
                         <Input
-                            label="Email"
+                            label="email"
                             type="email"
                             onChange={props.handleChange}
-                            name="email"
-                        />
-
+                            email="email" />
                         <div>
-                            <button type="submit"> {words.checkout} </button>
+                            <button type="submit">submit</button>
                         </div>
                     </form>
-                </Zoom>
-            </div>}
-        </>
+                </div>}
+        </Fragment>
     )
 }
-
-export default Checkout
+export default CheckoutForm
