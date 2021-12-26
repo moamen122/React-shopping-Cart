@@ -28,8 +28,10 @@
         "desc": "this is cover for note 10",
         "price": 70,
         "model": [
-            "note 10",
-            " note 9"
+            "Note9",
+            "Note10",
+            "Note20",
+            "Note20ultra"
         ]
     },
     {
@@ -39,8 +41,9 @@
         "desc": "this is cover for note 10",
         "price": 90,
         "model": [
-            "note 10",
-            " note 9"
+            "Note10",
+            "Note20",
+            "Note20ultra"
         ]
     }
 ]
