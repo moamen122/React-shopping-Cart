@@ -1,7 +1,22 @@
 import React, { useState } from 'react'
 import "../../css/Cart/Cart.css"
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
 function Cart(props) {
-    const [showForm, setShowForm] = useState(false)
+
+
+    const [showForm, setShowForm] = useState(false);
+    const [value, setValue] = useState("")
+    const submitOrder = (e) => {
+        e.preventDefault();
+        const order = {
+            name: value.name,
+            email: value.email
+        }
+    }
+
+    const handleChange = (e) => {
+        setValue((prevState) => ({ ...prevState, [e.target.name]: e.target.value }))
+    }
     return (
         <div className="cart-wrapper">
             <div className="cart-title"> {props.cartItems.length === 0 ? 'Cart Empty' : <p>
@@ -27,31 +42,19 @@ function Cart(props) {
                 props.cartItems.length !== 0 &&
                 (
                     <div className="cart-footer">
-                        <div className="total" >total : {props.cartItems.reduce((acc, p) => {
+                        <div className="total" >total : $ {props.cartItems.reduce((acc, p) => {
                             return acc + p.price
                         }, 0)} </div>
-                        <button onClick={() => showForm}>  select Products</button>
+                        <button onClick={() => setShowForm(true)}>  select Products</button>
                     </div>
                 )
-            }
-            {showForm &&
+            } {/*checkout form */}
+            <CheckoutForm showForm={showForm}
+                value={value}
+                submitOrder={submitOrder}
+                setShowForm={setShowForm}
+                handleChange={handleChange} />
 
-                <div className="checkout-form">
-                    <span className="close-icon" onClick={() => setShowForm(false)}>&times; </span>
-                    <form>
-                        <div>
-                            <label>Name</label>
-                            <input type="text" required name="name" />
-                        </div>
-                        <div>
-                            <label>Email</label>
-                            <input type="email" required name="email" />
-                        </div>
-                        <div>
-                            <button type="submit">submit</button>
-                        </div>
-                    </form>
-                </div>}
         </div>
 
     )

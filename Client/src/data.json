@@ -2,7 +2,7 @@
     {
         "id": "id1",
         "title": "cover for note ",
-        "imageurl": "/images/cover1.jpeg",
+        "imageurl": "/images/product1.jpeg",
         "desc": "this is cover for note 10",
         "price": 30,
         "models": [
@@ -12,7 +12,7 @@
     {
         "id": "id2",
         "title": "cover for note ",
-        "imageurl": "/images/cover2.jpg",
+        "imageurl": "/images/product2.jpeg",
         "desc": "this is cover for note 10",
         "price": 60,
         "models": [
@@ -23,7 +23,7 @@
     {
         "id": "id3",
         "title": "cover for note ",
-        "imageurl": "/images/cover3.jpg",
+        "imageurl": "/images/product3.jpg",
         "desc": "this is cover for note 10",
         "price": 70,
         "models": [
