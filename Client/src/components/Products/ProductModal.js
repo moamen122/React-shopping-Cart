@@ -14,4 +14,4 @@ function ProductModal(props) {
         </Modal>
     )
 }
-export default ProductModal
+export default ProductModal;

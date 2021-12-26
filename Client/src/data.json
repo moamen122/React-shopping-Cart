@@ -1,13 +1,12 @@
 [
     {
         "id": "id1",
-        "title": "cover",
+        "title": "cover for note ",
         "imageurl": "/images/cover1.jpeg",
         "desc": "this is cover for note 10",
         "price": 30,
-        "model": [
-            "note 10",
-            " note 9"
+        "models": [
+            "Note9"
         ]
     },
     {
@@ -16,9 +15,9 @@
         "imageurl": "/images/cover2.jpg",
         "desc": "this is cover for note 10",
         "price": 60,
-        "model": [
-            "note 10",
-            " note 9"
+        "models": [
+            "Note10",
+            "Note9"
         ]
     },
     {
@@ -27,8 +26,7 @@
         "imageurl": "/images/cover3.jpg",
         "desc": "this is cover for note 10",
         "price": 70,
-        "model": [
-            "Note9",
+        "models": [
             "Note10",
             "Note20",
             "Note20ultra"
@@ -40,7 +38,7 @@
         "imageurl": "/images/red.jpeg",
         "desc": "this is cover for note 10",
         "price": 90,
-        "model": [
+        "models": [
             "Note10",
             "Note20",
             "Note20ultra"
