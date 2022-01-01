@@ -5,6 +5,8 @@ import data from './data.json';
 import Products from "./components/Products/Products";
 import Filter from "./components/Filter/Filter";
 import Cart from "./components/Cart/Cart";
+import { Provider } from 'react-redux'
+import store from "./store/store";
 
 function App() {
   const [products, setProducts] = useState(data);
@@ -64,27 +66,29 @@ function App() {
 
 
   return (
-    <div className="layout">
-      <Header />
-      <main>
-        <div className="wrapper">
-          <Products products={products} addToCart={addToCart} />
-          <Filter
-            productsNumber={products.length}
-            model={model}
-            sort={sort}
-            handleFilterBySort={handleFilterBySort}
-            handleFilterByModel={handleFilterByModel}
+    <Provider store={store}>
+      <div className="layout">
+        <Header />
+        <main>
+          <div className="wrapper">
+            <Products products={products} addToCart={addToCart} />
+            <Filter
+              productsNumber={products.length}
+              model={model}
+              sort={sort}
+              handleFilterBySort={handleFilterBySort}
+              handleFilterByModel={handleFilterByModel}
 
-          />
+            />
 
 
-        </div>
-        <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
-      </main>
-      <Footer />
+          </div>
+          <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+        </main>
+        <Footer />
 
-    </div>
+      </div>
+    </Provider>
   );
 }
 
