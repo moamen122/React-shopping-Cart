@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { connect } from 'react-redux';
 import "../../css/Cart/Cart.css"
+import Modal from 'react-modal'
 import { removeCart } from '../../store/actions/cart';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 
@@ -8,13 +9,15 @@ function Cart(props) {
 
 
     const [showForm, setShowForm] = useState(false);
-    const [value, setValue] = useState("")
+    const [order, setOrder] = useState(false);
+    const [value, setValue] = useState("");
     const submitOrder = (e) => {
         e.preventDefault();
         const order = {
             name: value.name,
             email: value.email
         }
+        setOrder(order);
     }
 
     const handleChange = (e) => {
@@ -22,7 +25,43 @@ function Cart(props) {
     }
     return (
         <div className="cart-wrapper">
+            <Modal isOpen={order}>
+                <div className="order-info">
+                    <p className="alert-success"> Order Done Successfuly</p>
+                    <table>
+                        <tr>
+                            <td> Name:</td>
+                            <td> {order.name}:</td>
+                        </tr>
+                        <tr>
+                            <td> Email:</td>
+                            <td> {order.email}:</td>
+                        </tr>
+                        <tr>
+                            <td> Total:</td>
+                            <td> {props.cartItems.reduce((a, p) => {
+                                return a + p.price
+                            }, 0)}:</td>
 
+                        </tr>
+                        <tr>
+                            <td>
+                                <tr> Selected Items</tr>
+                            </td>
+                            <td> {props.cartItems.map(p => (
+                                <div className="cart-data">
+                                    <p>Number of this products: {p.qty}</p>
+                                    <p>Title of this products: {p.title}</p>
+
+                                </div>
+                            ))} </td>
+                        </tr>
+
+
+                    </table>
+                </div>
+
+            </Modal>
             <Fragment>
                 <div className="cart-title"> {props.cartItems.length === 0 ? 'Cart Empty' : <p>
                     There is {props.cartItems.length} products in cart
