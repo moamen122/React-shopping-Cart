@@ -12,7 +12,7 @@ function App() {
   const [products, setProducts] = useState(data);
   const [sort, setSort] = useState("");
   const [model, setModel] = useState("");
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
   const handleFilterByModel = (e) => {
     setModel(e.target.value);
 
